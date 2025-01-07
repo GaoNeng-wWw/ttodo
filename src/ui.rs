@@ -1,14 +1,14 @@
-use ratatui::{prelude::*, widgets::{Block, Borders, List, ListItem, ListState}};
-use style::palette::tailwind::{BLUE, GREEN, SLATE};
+use lazy_static::lazy_static;
+use ratatui::prelude::*;
 
-use crate::{app::{App, Screen}, views::home::Home, widgets};
+use crate::{
+    app::{App, Screen},
+    views::home::Home,
+};
 
-const TODO_HEADER_STYLE: Style = Style::new().fg(SLATE.c100).bg(BLUE.c800);
-const NORMAL_ROW_BG: Color = SLATE.c950;
-const ALT_ROW_BG_COLOR: Color = SLATE.c900;
-const SELECTED_STYLE: Style = Style::new().bg(SLATE.c800).add_modifier(Modifier::BOLD);
-const TEXT_FG_COLOR: Color = SLATE.c200;
-const COMPLETED_TEXT_FG_COLOR: Color = GREEN.c500;
+lazy_static! {
+    static ref home: Home = Home::new();
+}
 
 /// Renders the user interface widgets.
 pub fn render(app: &mut App, frame: &mut Frame) {
@@ -16,10 +16,7 @@ pub fn render(app: &mut App, frame: &mut Frame) {
     // See the following resources:
     // - https://docs.rs/ratatui/latest/ratatui/widgets/index.html
     // - https://github.com/ratatui/ratatui/tree/master/examples
-    let home = Home::new();
     match app.screen {
-        Screen::Home=>home.render(app, frame),
-        _=>{},
+        Screen::Home => home.render(app, frame),
     }
-    
 }

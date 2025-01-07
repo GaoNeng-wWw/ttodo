@@ -1,21 +1,19 @@
 #[derive(Debug, Clone)]
-pub enum TodoStatus{
+pub enum TodoStatus {
     DONE,
-    PROGESS
+    PROGESS,
 }
-#[derive(Debug,Clone)]
+#[derive(Debug, Clone)]
 pub struct Todo {
     pub name: String,
-    pub summary: String,
-    pub status: TodoStatus
+    pub status: TodoStatus,
 }
 
 impl Todo {
-    pub fn new(
-        name:String,
-        summary:String,
-        status:TodoStatus
-    ) -> Self {
-        Self { name, summary, status }
+    pub fn new(name: String, status: TodoStatus) -> Self {
+        Self {
+            name,
+            status,
+        }
     }
 }

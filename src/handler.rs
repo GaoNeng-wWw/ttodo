@@ -1,5 +1,8 @@
-use crate::{app::{App, AppResult}, views::home::Home};
-use crossterm::event::{KeyCode, KeyEvent, KeyModifiers};
+use crate::{
+    app::{App, AppResult},
+    views::home::Home,
+};
+use crossterm::event::KeyEvent;
 
 /// Handles the key events and updates the state of [`App`].
 pub fn handle_key_events(key_event: KeyEvent, app: &mut App) -> AppResult<()> {

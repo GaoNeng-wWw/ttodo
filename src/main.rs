@@ -12,10 +12,9 @@ use crate::{
 pub mod app;
 pub mod event;
 pub mod handler;
+pub mod model;
 pub mod tui;
 pub mod ui;
-pub mod model;
-pub mod widgets;
 pub mod views;
 
 #[tokio::main]
